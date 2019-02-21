@@ -33,8 +33,8 @@ var orderDictionary = [oid1:o1,oid2:o2,oid3:o3]
 
 orderDictionary.getOrderById(orderId: "O001")
 
-for (id, orders) in orderDictionary {
-    print(id,orders, terminator: "*")
+for (_ , orders) in orderDictionary {
+    orders.display()
 }
 
 
