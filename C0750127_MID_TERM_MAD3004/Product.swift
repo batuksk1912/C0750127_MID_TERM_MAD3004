@@ -7,3 +7,30 @@
 //
 
 import Foundation
+
+class Product : Manufacturer {
+    
+    private var productId: String?
+    private var productName: String?
+    private var price: Float?
+    private var quantity: Int?
+    
+    override init()
+    {
+        super.init()
+        productId = String()
+        productName = String()
+        price = 0.0
+        quantity = 0
+    }
+    
+    init(manufacturerId: String, manufacturerName: String, productId: String, productName: String, price: Float, quantity: Int) {
+        super.init(manufacturerId: manufacturerId, manufacturerName: manufacturerName)
+        self.productId = productId
+        self.productName = productName
+        self.price = price
+        self.quantity = quantity
+    }
+    
+
+}

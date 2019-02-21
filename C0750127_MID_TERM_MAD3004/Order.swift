@@ -7,3 +7,34 @@
 //
 
 import Foundation
+
+class Order : IDisplay {
+    
+    private var orderId: String?
+    private var orderDate: Date?
+    private var array: [Product]?
+    private var orderTotal: Float?
+    
+    init() {
+        orderId = String()
+        orderDate = Date()
+        array = []
+        orderTotal = 0.0
+    }
+    
+    init(orderId: String, orderDate: Date, array: [Product], orderTotal: Float) {
+        self.orderId = orderId
+        self.orderDate = orderDate
+        self.orderDate = orderDate
+        self.array = array
+        self.orderTotal = orderTotal
+    }
+    
+    func display() {
+        print("")
+    }
+    
+    
+    
+    
+}
