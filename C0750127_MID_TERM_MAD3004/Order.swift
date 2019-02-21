@@ -30,15 +30,32 @@ class Order : IDisplay {
         self.orderTotal = orderTotal
     }
     
-    func getOrderById(orderId: String ) -> String {
-        return orderId
+    func getOrderId() -> String {
+        return orderId!
+    }
+    
+    func getOrderById(orderId: String ) -> Order {
+        if (self.orderId == orderId) {
+            
+        }
     }
     
     func display() {
         print(self.orderId!, self.orderDate!, self.array!, self.orderTotal!)
     }
-    
-    
-    
-    
 }
+
+extension Order {
+    func cleanDollars(_ value: String?) -> String {
+        guard value != nil else { return "$0.00" }
+        let doubleValue = Double(value!) ?? 0.0
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "CAD"
+        formatter.currencySymbol = "$"
+        formatter.minimumFractionDigits = (value!.contains(".00")) ? 0 : 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .currencyAccounting
+        return formatter.string(from: NSNumber(value: doubleValue)) ?? "$\(doubleValue)"
+    }
+}
+
