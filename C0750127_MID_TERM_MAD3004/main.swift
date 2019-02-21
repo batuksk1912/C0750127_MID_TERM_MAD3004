@@ -25,6 +25,19 @@ var o2 = Order(orderId: "O002", orderDate: Date(), array:[p3,p4,p5], orderTotal:
 
 var o3 = Order(orderId: "O003", orderDate: Date(), array: [p1,p2,p4,p5], orderTotal: 4000.00)
 
+let oid1:String = o1.getOrderId()
+let oid2:String = o2.getOrderId()
+let oid3:String = o3.getOrderId()
+
+var orderDictionary = [oid1:o1,oid2:o2,oid3:o3]
+
+orderDictionary.getOrderById(orderId: "O001")
+
+for (id, orders) in orderDictionary {
+    print(id,orders, terminator: "*")
+}
+
+
 
 
 

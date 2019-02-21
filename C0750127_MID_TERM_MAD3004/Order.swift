@@ -34,28 +34,33 @@ class Order : IDisplay {
         return orderId!
     }
     
-    func getOrderById(orderId: String ) -> Order {
-        if (self.orderId == orderId) {
-            
-        }
-    }
-    
     func display() {
-        print(self.orderId!, self.orderDate!, self.array!, self.orderTotal!)
+        print(self.orderId!)
+        print(self.orderDate!)
+        print("Order Items")
+        if (array?.count != nil) {
+            for items in array! {
+                items.display()
+            }
+        }
+        print(self.orderTotal!.currencySembol())
     }
 }
 
-extension Order {
-    func cleanDollars(_ value: String?) -> String {
-        guard value != nil else { return "$0.00" }
-        let doubleValue = Double(value!) ?? 0.0
-        let formatter = NumberFormatter()
-        formatter.currencyCode = "CAD"
-        formatter.currencySymbol = "$"
-        formatter.minimumFractionDigits = (value!.contains(".00")) ? 0 : 2
-        formatter.maximumFractionDigits = 2
-        formatter.numberStyle = .currencyAccounting
-        return formatter.string(from: NSNumber(value: doubleValue)) ?? "$\(doubleValue)"
+extension Float {
+    func currencySembol() -> String {
+        return "$\(self)"
     }
+}
+
+extension Dictionary {
+    func getOrderById(orderId: String) {
+        for (_ , order) in orderDictionary {
+            if (order.getOrderId() == orderId) {
+                order.display()
+            }
+        }
+    }
+    
 }
 

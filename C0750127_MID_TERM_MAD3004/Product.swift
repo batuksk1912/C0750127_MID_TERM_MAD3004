@@ -34,8 +34,6 @@ class Product : Manufacturer {
     
     override func display() {
         super.display()
-        print(self.productId!, self.productName!, self.price!, self.quantity!)
+        print(self.productId!, self.productName!, self.price!.currencySembol(), self.quantity!)
     }
-    
-
 }
