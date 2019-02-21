@@ -10,8 +10,8 @@ import Foundation
 
 class Manufacturer : IDisplay {
     
-    private var manufacturerId : String
-    private var manufacturerName : String
+    private var manufacturerId : String?
+    private var manufacturerName : String?
     
     init() {
         self.manufacturerId = String()
@@ -23,14 +23,7 @@ class Manufacturer : IDisplay {
         self.manufacturerName = manufacturerName
     }
     
-    
-    
     func display() {
-        print("")
+        print(self.manufacturerId!, self.manufacturerName!)
     }
-    
-    
-    
-    
-
 }

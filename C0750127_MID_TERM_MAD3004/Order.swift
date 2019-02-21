@@ -30,8 +30,12 @@ class Order : IDisplay {
         self.orderTotal = orderTotal
     }
     
+    func getOrderById(orderId: String ) -> String {
+        return orderId
+    }
+    
     func display() {
-        print("")
+        print(self.orderId!, self.orderDate!, self.array!, self.orderTotal!)
     }
     
     

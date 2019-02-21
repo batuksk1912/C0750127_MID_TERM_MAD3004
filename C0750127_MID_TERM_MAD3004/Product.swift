@@ -32,5 +32,10 @@ class Product : Manufacturer {
         self.quantity = quantity
     }
     
+    override func display() {
+        super.display()
+        print(self.productId!, self.productName!, self.price!, self.quantity!)
+    }
+    
 
 }
